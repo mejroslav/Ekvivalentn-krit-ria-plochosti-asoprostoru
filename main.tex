@@ -1,0 +1,405 @@
+\documentclass{article}
+
+\input{style}
+
+\title{Ekvivalentní kritéria plochosti prostoročasu}
+\author{\spacedlowsmallcaps{Miroslav Burýšek, Filip Novotný, Tomáš Tesař}}
+\date{\today}
+
+% \usepackage[inline]{showlabels}  \showlabels[\small\color{JungleGreen}]{}
+
+
+
+\begin{document}
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+
+\maketitle
+
+\footnote{Tento text je dostupný i na GitHubu. Volně šiřitelné.}
+
+\section*{Absolutní derivace}
+
+Absolutní derivaci vektorového pole $T^\alpha(u)$ podél křivky $x(u)$ definujeme předpisem
+\begin{align}
+    \ader{T^\alpha}{u} := T\indices{^\alpha_;_\kappa} \der{x^\kappa}{u} = \left[ T\indices{^\alpha_,_\kappa} + \Gamma\indices{^\alpha_\lambda_\kappa} T^\lambda \right] \der{x^\kappa}{u} \:.
+\end{align}
+Jestliže se vektorové pole přenáší paralelně, pak \begin{align}
+    \ader{T^\alpha}{u} = 0 \:.
+\end{align}
+Absolutní derivace skaláru je stejná jako parciální derivace
+\begin{align}
+    \ader{f}{u} = \der{f}{u}
+\end{align}
+a absolutní derivaci formy počítáme dle vztahu
+\begin{align}
+    \ader{A_\alpha}{u} = \left[ A\indices{_\alpha_,_\kappa} - \Gamma\indices{^\sigma_\alpha_\kappa} A_{\sigma} \right] \der{x^\kappa}{u} \:.
+\end{align}
+
+\section*{Riemannův tenzor}
+Připomeňme, že Riemannův tenzor jsme definovali (pro afinní konexi bez torze - symetrie spodních indexů Christofellových symbolů) vztahem
+\begin{align}
+    2 T\indices{_\alpha_;_[_\kappa_\lambda_]} = T\indices{_\alpha_;_\kappa_\lambda} - T\indices{_\alpha_;_\lambda_\kappa} = - T_\sigma R\indices{^\sigma_\alpha_\kappa_\lambda} \:, \label{eq:Riemann-komutator}
+\end{align}
+kde
+\begin{align}
+    R\indices{^\sigma_\alpha_\kappa_\lambda} := \Gamma\indices{^\sigma_\alpha_\lambda_,_\kappa}- \Gamma\indices{^\sigma_\alpha_\kappa_,_\lambda} + \Gamma\indices{^\sigma_\rho_\kappa} \Gamma\indices{^\rho_\alpha_\lambda} - \Gamma\indices{^\sigma_\rho_\lambda} \Gamma\indices{^\rho_\alpha_\kappa} \:.
+\end{align}
+Riemann je antisymetrický v prvních dvou a ve druhých dvou indexech:
+\begin{align}
+    R\indices{^\sigma_\alpha_\kappa_\lambda} =& - R\indices{^\sigma_\alpha_\lambda_\kappa} \:, \\
+    R\indices{^\sigma_\alpha_\kappa_\lambda} =& - R\indices{_\alpha^\sigma_\kappa_\lambda} \:.
+\end{align}
+
+Stejně jako nejsou druhé kovariantní derivace záměnné, nejsou ani druhé absolutní derivace záměnné. Máme-li definované kovektorové pole $A_\alpha$ na dvourozměrné ploše $x(u,v)$, pak lze odvodit analogický vztah
+\begin{align}
+    \apder{}{u} \apder{A_\alpha}{v} - \apder{}{v} \apder{A_\alpha}{u} = A_\sigma R\indices{^\sigma_\alpha_\kappa_\lambda} \pder{x^\kappa}{u} \pder{x^\lambda}{v} \:. \label{eq:abs-komutator}
+\end{align} 
+
+Poslední vztah, který se nám bude hodit, zní:
+\begin{align}
+    \apder{}{u} \pder{x^\alpha}{v} 
+    = \frac{\partial^2 x^\alpha}{\partial u \partial v} + \Gamma\indices{^\alpha_\kappa_\lambda} \pder{x^\kappa}{u} \pder{x^\lambda}{v} 
+    = \frac{\partial^2 x^\alpha}{\partial u \partial v} + \Gamma\indices{^\alpha_\lambda_\kappa} \pder{x^\kappa}{u} \pder{x^\lambda}{v} 
+    = \apder{}{v} \pder{x^\alpha}{u} \:.
+\end{align}
+
+\section*{Věta o čtyřech ekvivalencích}
+
+Je přirozené zkoumat otázky:
+\begin{enumerate}
+    \item \underline{Kdy je paralelní přenos integrabilní?} Neboli, pokud přenášíme vektor z jednoho bodu do druhého, kdy nebude záviset na křivce, podél které ho přenášíme?
+    \item \underline{Kdy lze prostor vybavený metrikou považovat za plochý?}
+\end{enumerate}
+
+Odpověď na obě otázky je stejná: \underline{právě tehdy, když je Riemannův tenzor příslušný dané metrice nulový}. Tvrzení lze zformulovat do větičky. Zdůrazněme ještě, že všude v textu budeme pracovat s \underline{jednoduše souvislými prostory}, což nám umožní vždy spojit dva body křivkou.
+
+\begin{figure}[H] 
+
+\centering
+\def\svgwidth{9cm}
+\input{presun.pdf_tex}
+\caption{Paralelní přenos vektoru $T$ z počátečního bodu $P$ do koncového bodu $K$ podél dvou různých křivek $\gamma_1$, $\gamma_2$. Výsledné vektory nemusejí být stejné, jejich rozdíl označíme $\Delta T$. Jestliže $\Delta T = 0$, o afinní konexi říkáme, že je integrabilní.}
+\label{fig:}
+
+\end{figure}
+
+\begin{theorem}[Kritéria plochosti prostoročasu]
+    Následující čtyři tvrzení jsou si ekvivalentní:
+    \begin{enumerate}
+        \item Afinní konexe je integrabilní. Konkrétně: přenášíme-li vektor $T$ podél dvou křivek $\gamma_1$ a $\gamma_2$ z bodu $P$ do bodu $K$, pak
+        \begin{align}
+            \Delta T := T(\gamma_2)|_K - T(\gamma_1)|_K = 0
+        \end{align}
+        \item Existuje vektorové pole $T^\mu$ takové, že $T\indices{^\mu_;_\alpha} = 0$ s libovolnou počáteční podmínkou $T^\mu(P) = T_P^\mu = \const$. 
+        \item Riemannův tenzor odpovídající metrice $g_{\alpha \beta}$ je nulový: $R\indices{^\mu_\alpha_\beta_\gamma} = 0$.
+        \item Riemannův prostoročas je plochý.
+    \end{enumerate}
+\end{theorem}
+
+Tvrzení (2) ve větě říká, že pokud si v libovolném bodě $P$ zvolíme nějaký vektor $T_P^\mu$ a paralelně ho rozneseme do celého prostoru, vytvoříme tím vektorové pole! Neboli, nemůže se stát, že bychom někde dostali nějakou nejednoznačnost. Stejný výrok platí jistě i pro libovolný tenzor. Speciálně, v důkazu $3 \implies 1$ ho aplikujeme na kovektorové pole.
+
+\begin{figure}[H] 
+
+\centering
+\def\svgwidth{2.6cm}
+\input{schema-dukazu.pdf_tex}
+\caption{Schéma důkazu věty o čtyřech ekvivalencích.}
+\label{fig:}
+
+\end{figure}
+
+
+\begin{proof}[Důkaz $1 \implies 2$]
+    Jestliže je afinní konexe integrabilní, lze libovolný vektor $T^\alpha(P)$ paralelně přenést z nějakého bodu $P$ do celého prostoru a vytvořit vektorové pole $T^\alpha(X)$ jednoznačně definované v každém bodě $X$. Zvolme si v prostoru libovolnou křivku $x(u)$. I podél této křivky se vektor $T^\alpha$ přenáší paralelně. Absolutní derivace podél této křivky tedy bude nulová:
+    \begin{align}
+        \ader{T^\alpha}{u} = \der{T^\alpha}{u} + \Gamma\indices{^\alpha_\lambda_\kappa} T^\lambda \der{x^\kappa}{u} = \left[ T\indices{^\alpha_;_\kappa} + \Gamma\indices{^\alpha_\lambda_\kappa} T^\lambda \right]_{x(u)} \der{x^\kappa}{u} = \left[ T\indices{^\alpha_;_\kappa}\right]_{x(u)} \der{x^\kappa}{u} = 0 \:.
+    \end{align} 
+    Protože to musí platit pro libovolnou křivku $x(u)$, musí nutně být $T\indices{^\alpha_;_\kappa} = 0$.
+\end{proof}
+
+\begin{proof}[Důkaz $2 \implies 3$]
+    Obdobnou rovnici jako \eqref{eq:Riemann-komutator} lze napsat i pro vektorové pole:
+    \begin{align}
+        2 T\indices{^\alpha_;_[_\kappa_\lambda_]} = T\indices{^\alpha_;_\kappa_\lambda} - T\indices{^\alpha_;_\lambda_\kappa} = R\indices{_\sigma^\alpha_\kappa_\lambda} T^\sigma = -R\indices{^\alpha_\sigma_\kappa_\lambda} T^\sigma \:.
+    \end{align}
+    Jestliže tedy zvolíme $T^\alpha$ takové, že $T\indices{^\alpha_;_\sigma} = 0$, pak je nutně celá rovnice identicky nulová a tedy $R\indices{^\alpha_\sigma_\kappa_\lambda} = 0$.
+\end{proof}
+
+\begin{proof}[Důkaz $3 \implies 1$]
+    Nechť $R\indices{^\alpha_\sigma_\kappa_\lambda} = 0$. Ukážeme, že vektor $T^\alpha$ přenášený podél dvou křivek $\gamma_1$ a $\gamma_2$ do stejného koncového bodu je stejný. 
+    
+    Zvolme počáteční bod $P$ a koncový bod $K$ v jednoduše souvislé oblasti.
+    Budeme počítat rozdíl, který získáme přenášením podél do koncového bodu podél různých křivek
+    \begin{align}
+        \Delta T = T(\gamma_1)|_K - T(\gamma_2)|_K \:.
+    \end{align}
+    Ukážeme, že tento rozdíl závisí na Riemannově tenzoru. Pokud bude Riemann nulový, bude i rozdíl nulový.
+    
+    V jednoduše souvislé oblasti můžeme křivky $\gamma_1$ a $\gamma_2$ na sebe spojitě převádět. Získáme tak \underline{soustavu křivek} $\set{x^\alpha(u,\beta)}$ jako na obrázku \ref{fig:soustava}. První parametr $u \in [0,1]$ bude parametrizovat danou křivku, druhý parametr $\beta \in [0,1]$ bude odlišovat jednotlivé křivky. Získáme tak parametrické rovnice
+    \begin{align}
+        x^\alpha = x^\alpha(u,\beta) \:, \quad x^\alpha(0,\beta) =& x^\alpha(P) \:, \quad x^\alpha(1,\beta) = x^\alpha(K) \:, \label{eq:krivky} \\
+        \gamma_1(u) =& x^\alpha(u,0) \:, \quad \gamma_2(u) = x^\alpha(u,1) \:. 
+    \end{align}
+
+    \begin{figure}[H] 
+    
+        \centering
+        \def\svgwidth{\columnwidth}
+        \input{soustava-krivek.svg.pdf_tex}
+        \caption{Parametrická soustava křivek $x^\alpha(u,\beta)$. Počáteční bod jsme označili $P$, koncový bod $K$. Z bodu $P$ přenášíme vektorové pole $T^\alpha$, z bodu $K$ přenášíme pomocné kovektorové pole $A_\alpha$.}
+        \label{fig:soustava}
+        
+        \end{figure}
+
+    Jestliže rovnice \vref{eq:krivky} zderivujeme podle $\beta$, dostaneme rovnici, která říká, že v bodech $P$ a $K$ se křivky s parametrem $\beta$ nemění:
+    \begin{align}
+        \pder{x^\alpha}{\beta}\big|_P = \pder{x^\alpha}{\beta}(0,\beta) = 0 = \pder{x^\alpha}{\beta}(1,\beta) = \pder{x^\alpha}{\beta}\big|_K  \:. \label{eq:koncove_body}
+    \end{align} 
+
+    Podél všech těchto křivek budeme paralelně přenášet vektor $T^\alpha$ z bodu $P$ do bodu $K$. Vytvoříme tak vektorové pole $T^\alpha(u,\beta)$ splňující (nulovost absolutní derivace plyne z nulovosti kovariantní derivace)
+    \begin{align}
+        \apder{T^\alpha}{u}(u,\beta) = 0 \:, \quad T^\alpha(0,\beta) = T^\alpha(P) \:. \label{eq:prenos-vektoru}
+    \end{align}
+    Toto vektorové pole je jednoznačně definováno všude, \underline{až na koncový bod $K$}.
+
+    Nyní provedeme následující trik: \underline{zavedeme pomocné kovektorové pole $A_\alpha(u,\beta)$} stejným způsobem jako vektorové pole  $T^\alpha$, akorát že ho naopak zvolíme v bodě $K$ a paralelně ho rozneseme podél křivek. Bude tedy všude definované jednoznačně až na bod $P$. Bude platit
+    \begin{align}
+        \apder{A_\alpha}{u}(u,\beta) = 0 \:, \quad A_\alpha(1,\beta) = A_\alpha(K) \:.
+    \end{align}
+
+    V bodě $P$ je absolutní derivace vektorového pole $T$ podle parametru $\beta$ nulová:
+    \begin{align}
+        \apder{T^\alpha(P)}{\beta} = \pder{T^\alpha(P)}{\beta} + \Gamma\indices{^\alpha_\kappa_\lambda}(P) T^\kappa(P) \pder{x^\lambda}{\beta}\big|_P = 0
+    \end{align}
+    Podobně, v bodě $K$ je absolutní derivace kovektorového pole $A_\alpha$ nulová:
+    \begin{align}
+        \apder{A_\alpha(K)}{\beta} = 0 \:.
+    \end{align}
+
+    Pomocné pole $A_\alpha$ jsme definovali proto, že nám umožní vytvořit \underline{skalární pole $A_\alpha T^\alpha$}. Nyní vyjádříme rozdíl $\Delta T$ pomocí tenzoru křivosti. Nejprve převedeme rozdíl tenzoru $T^\alpha$ na integrál (základní věta integrálního počtu) a využijeme toho, že parciální a absolutní derivace skaláru jsou stejné:
+    \begin{align}
+        A_\alpha(K) \Delta T^\alpha 
+        = A_\alpha(K) \left[ T^\alpha(1,1) - T^\alpha(1,0) \right] 
+        = \int_0^1 \D \beta \pder{}{\beta} \left[ A_\alpha(K) T^\alpha(1, \beta) \right] 
+        = \int_0^1 \D \beta \apder{}{\beta} \left[ A_\alpha(K) T^\alpha(1, \beta) \right] \:.
+    \end{align}
+    Nyní využijeme toho, že $\apder{A_\alpha(K)}{\beta} = 0$, takže
+    \begin{align}
+        \int_0^1 \D \beta \apder{}{\beta} \left[ A_\alpha(K) T^\alpha(1, \beta) \right] = \int_0^1 A_\alpha(K) \apder{T^\alpha}{\beta}(1,\beta) \:.
+    \end{align}
+    Využijeme nyní dalšího triku: k integrálu přičteme identickou nulu, neb $\apder{T^\alpha}{\beta}(0,\beta) = 0$:
+    \begin{align}
+        \int_0^1 A_\alpha(K) \apder{T^\alpha}{\beta}(1,\beta)
+        = \int_0^1 \left[ A_\alpha(1,\beta) \apder{T^\alpha}{\beta}(1,\beta) - A_\alpha(0,\beta) \apder{T^\alpha}{\beta}(0,\beta) \right]
+    \end{align}
+    a opět použijeme základní větu integrálního počtu:
+    \begin{align}
+        \int_0^1 \left[ A_\alpha(1,\beta) \apder{T^\alpha}{\beta}(1,\beta) - A_\alpha(0,\beta) \apder{T^\alpha}{\beta}(0,\beta) \right] 
+        = \int_0^1 \D u \int_0^1 \D \beta \pder{}{u} \left[ A_\beta(u,\beta) \apder{T^\alpha}{\beta} (u,\beta) \right] \:.
+    \end{align}
+    Znovu využijeme rovnosti absolutní a parciální derivace pro skaláry a toho, že $\apder{A_\alpha}{u} = 0$:
+    \begin{align}
+        = \int_0^1 \D u \int_0^1 \D \beta \pder{}{u} \left[ A_\beta(u,\beta) \apder{T^\alpha}{\beta} (u,\beta) \right] 
+        = \int_0^1 \D u \int_0^1 \D \beta \apder{}{u} \left[ A_\alpha \apder{T^\alpha}{\beta}\right] 
+        = \int_0^1 \D u \int_0^1 \D \beta A_\alpha \frac{\mathrm{D}^2 T^\alpha}{\partial u \partial \beta} \:.
+    \end{align}
+    Druhé absolutní derivace nejsou záměnné! Jejich komutátor jsme již jednou zmínili v rovnici \eqref{eq:abs-komutator}. Ale protože $\apder{T^\alpha}{u} = 0$ (viz \eqref{eq:prenos-vektoru}), dostaneme:
+    \begin{align}
+        \apder{}{u}\apder{T^\alpha}{\beta} = \apder{}{\beta} \apder{T^\alpha}{u} + T^\sigma R\indices{_\sigma^\alpha_\kappa_\lambda} \pder{x^\kappa}{u} \pder{x^\lambda}{\beta} = 0 -  R\indices{^\alpha_\sigma_\kappa_\lambda} T^\sigma \pder{x^\kappa}{u} \pder{x^\lambda}{\beta} \:.
+    \end{align}
+    Takže 
+    \begin{align}
+        \int_0^1 \D u \int_0^1 \D \beta A_\alpha \frac{\mathrm{D}^2 T^\alpha}{\partial u \partial \beta} 
+        = - \int_0^1 \D u \int_0^1 \D \beta A_\alpha R\indices{^\alpha_\sigma_\kappa_\lambda} T^\sigma \pder{x^\kappa}{u} \pder{x^\lambda}{\beta} \:.
+    \end{align}
+    Celkově jsme zjistili, že
+    \begin{align}
+        A_\alpha(K) \Delta T^\alpha 
+        = - \int_0^1 \D u \int_0^1 \D \beta A_\alpha R\indices{^\alpha_\sigma_\kappa_\lambda} T^\sigma \pder{x^\kappa}{u} \pder{x^\lambda}{\beta} \:. \label{eq:geometrie}
+    \end{align}
+    Odtud dostáváme, že pokud je Riemannův tenzor nulový, je nutně nulový i rozdíl $\Delta T^\alpha$, vektory přenášené podél křivek $\gamma_1$ i $\gamma_2$ jsou stejné a afinní konexe je tedy integrabilní.
+
+\end{proof}
+
+Než se pustíme do důkazu posledních dvou implikací, zastavme se ještě u geometrické interpretace rovnice \eqref{eq:geometrie}. Představme si, že za $\gamma_1$ a $\gamma_2$ zvolíme strany infinitezimálně malého rovnoběžníka. Výraz $\pder{x^\kappa}{u} \, \D u$ představuje vlastně infinitezimální přírůstek ve směru $u$, označme ho třeba $\D_u x$. Podobně označme $\D_\beta x := \pder{x^\lambda}{\beta} \, \D \beta$. Získáme pak rovnoběžník jako na obrázku \vref{fig:rovnobeznik}.
+
+
+    
+\begin{figure}[H]
+    \centering
+      \begin{tikzpicture}
+        \draw[very thick,white!30]
+        (0,0) coordinate(A) --
+        (3,1) coordinate(B) --   
+        (1,3) coordinate(C) -- 
+        (4,4) coordinate(D);
+        \foreach \Point in {A,D}{
+        \fill[black] (\Point) circle(3pt);
+        \node[below] at (A) {$P$};
+        \node[below] at (3.2,0.9) {\Large$\gamma_1$};
+        \node[above] at (0.8,3.1) {\Large$\gamma_2$};
+        \node[below] at (1.5,0.4) {$\D_{u}x$};
+        \node[above] at (2.5,3.5) {$\D_{u}x$};
+        \node[left] at (0.5,1.5) {$\D_{\beta}x$};
+        \node[right] at (3.5,2.5) {$\D_{\beta}x$};
+        \node[right ] at (D) {$K$} ;
+        }
+        \draw[black, ultra thick] (A)  (B) ;
+        \draw[black, ultra thick] (A) (C);
+        \draw[black, ultra thick ] (A) -- (B);
+        \draw[black, ultra thick] (B) -- (D);
+        \draw[black, ultra thick] (A) -- (C);
+        \draw[black, ultra thick ] (C) -- (D);
+        \draw[-Stealth] (A) -- (-1,2);
+        \node[left] at (-1,2) {$T_1$};
+        \draw[-Stealth ] (D) -- (3,6);
+        \node[left] at (3,5.6) {$T_2'$};
+        \draw[-Stealth ] (D) -- (4,6);
+        \node[right] at (4,5.6) {$T_2$};
+        \draw[very thick,-Stealth ] (4,6) -- (3,6);
+        \node[above] at (3.5,6) {$\Delta T$};
+        \end{tikzpicture}
+    \caption{Infinitezimální rovnoběžník. Výraz $\D_u x$ představuje diferenciál souřadnic při konstantním $\beta$, podobně výraz $\D_\beta x$ s konstantním $u$.}
+    \label{fig:rovnobeznik}
+\end{figure}
+
+Pokud si představíme rovnoběžník skutečně infinitezimální, pak lze v integrálu \eqref{eq:geometrie} nahradit každou z veličin její hodnotou v libovolném bodě. Dostaneme
+\begin{align}
+    A_\alpha(K) \Delta T^\alpha = - A_\alpha(K) R\indices{^\alpha_\sigma_\kappa_\lambda}(P) T^\kappa(P) \left[ \pder{x^\kappa}{u} \big|_{P} \D u \right] \left[ \pder{x^\lambda}{\beta} \big|_{P} \D \beta \right]
+\end{align}
+a vzhledem k tomu, že $A_\alpha$ je libovolné,
+\begin{align}
+    \D T^\alpha = - R\indices{^\alpha_\sigma_\kappa_\lambda} T^\sigma \D_u x^\kappa \D_\beta x^\lambda \:. \label{eq:rozdil}
+\end{align}
+Ještě jednou: přesouváme-li vektor $T$ o infinitezimální vzdálenost po $\D_u x$ a pak po $\D_\beta x$, vyjde nám něco jiného, než když ho přesouváme v opačném pořadí, nejdříve podél $\D_\beta x$ a pak podél $\D_u x$. Rozdíl těchto dvou vektorů je vyjádřen právě rovnicí \eqref{eq:rozdil}.
+
+
+\begin{proof}[Důkaz $4 \implies 3$]
+    Plochý prostor se vyznačuje tím, že v něm lze zavést kartézské souřadnice. V nich pak metrika bude mít tvar
+    \begin{align}
+        g_{\alpha \beta } = \eta_{(\alpha)(\beta)} = \begin{cases} 0 & \alpha \neq \beta \\ \pm 1 & \alpha = \beta \end{cases} \:. \label{eq:minkowski}
+    \end{align}
+    (Kulaté závorky naznačují, že se nejedná o abstraktní index, ale o číslování složek matice nebo vektoru.)
+    Všechny složky Riemannova tenzoru budou potom nulové.
+\end{proof}
+    
+\begin{proof}[Důkaz $2 \implies 4$]
+    Nechť existuje vektorové pole $T^\mu$ takové, že $T\indices{^\mu_;_\alpha} = 0$ s libovolnou počáteční podmínkou $T^\mu(P) = T_P^\mu = \const$. Chceme sestrojit souřadný systém takový, že v něm metrika bude mít tvar \eqref{eq:minkowski}.
+
+    Zvolme v bodě $P$ ortonormální n-ádu kovektorů $\set{e^{(\alpha)}_\mu(P)}_{\alpha = 1}^N$. Tyto kovektory lze podle tvrzení (2) z věty paralelně roznést do celého prostoru, čímž získáme kovektorové pole $\set{e^{(\alpha)}_\mu}_{\alpha = 1}^N$ splňující
+    \begin{align}
+        e\indices{^{(\alpha)}_\mu_;_\nu} = 0 \:.
+    \end{align}
+
+    Zvolme nyní pevný bod $X$. Protože paralelní přenos zachovává úhly mezi vektory, budou v něm kovektory $e^{(\alpha)}(X)$ stále ortonormální tetrádou.
+    
+    Tvrdíme nyní, že každý z těchto vektorů je normálový k nějaké nadploše předepsané rovnicí $\Phi^{(\alpha)}(x^\alpha) = 0$, tedy
+    \begin{align}
+        \Phi^{(\alpha)}_{,\mu}(X) = e^{(\alpha)}_\mu (X) \:. \label{eq:normaly}
+    \end{align}
+    Toto tvrzení dokážeme nakonec. Předpokládejme teď na chvíli, že je pravdivé. Pak jsme vyhráli, protože funkce $\Phi^{(\alpha)}$ tvoří nezávislou sadu (jejich odpovídající normálové kovektory jsou na sebe kolmé) a můžeme je zvolit jako nové souřadnice $\xi^\alpha$!
+    \begin{align}
+        \xi^\alpha(X) := \Phi^{(\alpha)}(X) \:.
+    \end{align}
+    Matice přechodu $J^\alpha_\beta$ bude
+    \begin{align}
+        J^\alpha_\beta = \pder{\xi^\alpha}{x^\beta} = \Phi^{(\alpha)}_{,\beta} = e^{(\alpha)}_\beta \:.
+    \end{align}
+    Složky vektorů v těchto nových souřadnicích (označené čepičkami) jsou
+    \begin{align}
+        e^{\hat \kappa}_{(\beta)} = J^{\hat \kappa}_\sigma e^{\sigma}_{(\beta)} = e^{(\kappa)}_{\sigma} e^{\sigma}_{(\beta)} = g_{\rho \sigma} e^{\rho}_{(\kappa)} e^{\sigma}_{(\beta)} = \eta_{(\kappa)(\beta)} \:.
+    \end{align}
+    Protože jsou vektory ortonormální, mají v souřadnicích tvar
+    \begin{align}
+        e^{\hat \beta}_{(1)} = (\pm 1, 0 , 0 , 0 , \cdots) \:, \\
+        e^{\hat \beta}_{(2)} = (0, \pm 1 , 0 , 0 , \cdots) \:, \\
+        e^{\hat \beta}_{(3)} = (0, 0 , \pm 1 , 0 , \cdots) \:, \\
+        \cdots
+    \end{align}
+    a metrika má tvar kartézské \eqref{eq:minkowski} (díky ortonormalitě a konstantnosti vektorů). Tím jsme dokázali, že je prostor plochý.
+\end{proof}
+
+Zbývá ukázat poslední tvrzení o platnosti vztahu \eqref{eq:normaly}. Využijeme k tomu podobnou soustavu křivek mezi dvěma křivkami $\gamma_1$ a $\gamma_2$ stejně jako na obrázku \vref{fig:soustava} - s tím rozdílem, že budeme potřebovat derivavovat podle horní meze, takže místo parametrizace $u \in [0,1]$ pišme $u \in [u_P, u_K]$.
+
+
+\begin{theorem}
+    Nechť existuje kovektorové pole $T_\mu$ takové, že $T\indices{_\mu_;_\alpha} = 0$. Pak křivkový integrál
+    \begin{align}
+        \int_P^K T_\alpha(x) \D x^\alpha =: \Phi(K)
+    \end{align}
+    nezávisí na cestě mezi $P$ a $K$ a platí
+    \begin{align}
+        \pder{\Phi}{x^\alpha(K)} = T_\alpha(K)
+    \end{align}
+\end{theorem}
+
+\begin{proof}
+    Označme
+    \begin{align}
+        \Phi(K,\beta) = \int_{u_P}^{u_K} \D u T_\alpha(x(u,\beta)) \pder{x^\alpha}{u} (u,\beta) \:,
+    \end{align}
+    kde integrace probíhá podél pevné křivky $x=x(u,\beta)$ s pevným $\beta$. Pak
+    \begin{align}
+        \pder{\Phi}{\beta} 
+        = \int_{u_P}^{u_K} \D u \pder{}{\beta} \left[ T_\alpha \pder{x^\alpha}{u} \right] 
+        = \int_{u_P}^{u_K} \D u \apder{}{\beta} \left[ T_\alpha \pder{x^\alpha}{u} \right]
+        = \int_{u_P}^{u_K} \D u \left[ T\indices{_\alpha_;_\kappa}\pder{x^\kappa}{\beta} \pder{x^\alpha}{u} + T_\alpha \apder{}{\beta} \pder{x^\alpha}{u} \right] \:.
+    \end{align}
+    První člen je díky nulovosti kovariantní derivace nulový. Ve druhém členu provedeme úpravu
+    \begin{align}
+        T_\alpha \apder{}{\beta} \pder{x^\alpha}{u} 
+        =T_\alpha \apder{}{u} \pder{x^\alpha}{\beta}
+        = \apder{}{u} \left[ T_\alpha \pder{x^\alpha}{\beta} \right] - T\indices{_\alpha_;_\kappa} \pder{x^\alpha}{\beta} \pder{x^\kappa}{u}
+        = \apder{}{u} \left[ T_\alpha \pder{x^\alpha}{\beta} \right] 
+        = \pder{}{u} \left[ T_\alpha \pder{x^\alpha}{\beta} \right]
+    \end{align}
+    a dostaneme (poslední rovnost dle \eqref{eq:koncove_body})
+    \begin{align}
+        \pder{\Phi}{\beta} 
+        = \int_{u_P}^{u_K} \D u \pder{}{u} \left[ T_\alpha \pder{x^\alpha}{\beta} \right] = \left[ T_\alpha \pder{x^\alpha}{\beta} \right]_{u_P}^{u_K} = 0 \:.
+    \end{align}
+    Takže $\Phi(K,0) = \Phi(K,1)$, integrál nezávisí na volbě křivky.
+
+    Druhá část tvrzení je důsledkem derivování integrálu podle horní meze. Připomeňme si vztah
+    \begin{align}
+        \pder{}{x} \int_a^{x} f(t) \, \D t = f(\phi(x)) \:.
+    \end{align} 
+    Aplikujeme-li ho na křivkový integrál, dostaneme
+    \begin{align}
+        \pder{\Phi}{x^\alpha(K)} \pder{x^\alpha(K)}{u_K} = \left[ T_\alpha (x(u,\beta)) \pder{x^\alpha(u,\beta)}{u} \right]_{u_K} \:.
+    \end{align}
+\end{proof}
+
+\section*{Shrnutí}
+
+\begin{itemize}
+    \item $1 \implies 2$: Jestliže je paralelní přenos integrabilní, vektor přenesený do libovolného bodu nezávisí na křivce, po které ho přenášíme. Podél libovolné křivky se tedy taky musí přenášet paralelně. Lze tak vytvořit vektorové pole (všude jednoznačné) a z rovnice pro paralelní přenos snadno uvidíme, že musí být jeho kovariantní derivace nulová.
+    \item $2 \implies 3$: Riemannův tenzor vychází z komutátoru druhých kovariantních derivací. Jestliže je už první derivace identicky nulová, musí pak být nutně nulové druhé derivace a tedy i nulový Riemann.
+    \item $3 \implies 1$: Ptáme se, jak moc se vektory $T^\alpha$ přenesené do koncového bodu podél křivek $\gamma_1$ a $\gamma_2$ budou lišit. K tomu využijeme to, že je na sebe můžeme spojitě převádět. Vytvoříme jednoparamerickou soustavu křivek. Zvolíme si dále pomocné kovektorové pole $A_\alpha$ z koncového bodu. To nám dovolí zavést skalární pole $T^\alpha A_\alpha$, pro které můžeme zaměňovat absolutní a parciální derivace. Hledaný rozdíl se nám podaří vyjádřit pomocí integrálu, ve kterém se objeví Riemannův tenzor. Pokud ten je identicky nulový, bude i hledaný rozdíl nulový.
+    \item $4 \implies 3$. V plochém prostoru lze zavést kartézské souřadnice. V nich je Riemann identicky nulový.
+    \item $2 \implies 4$ Sestavíme si ortonormální tetrádu kovektorů a zjistíme, že odpovídají normálám na nějaké plochy $\Phi^\alpha = 0$ - vyžaduje to technické tvrzení. Funkce $\Phi^\alpha$ pak můžeme zvolit za nové souřadnice. Snadno se dá nahlédnout, že odpovídají kartézským, metrický tenzor v těchto souřadnicích je diagonální matice s plus-minus jedničkami.
+
+\end{itemize}
+
+\newpage
+
+\section*{Nedůležité}
+\begin{itemize}
+    \item Vyzkoušejte \LaTeX balíčky: 
+    \begin{itemize}
+        \item \href{https://www.ctan.org/pkg/tensor}{tensor} pro psaní tenzorů
+        \item \href{https://www.ctan.org/pkg/varioref}{varioref} pro detailnější reference rovnic s odkazem na konkrétní stránku
+        \item \href{https://www.ctan.org/pkg/showlabels}{showlabels} pro lepší orientaci v labels
+        \item \href{https://ctan.org/pkg/realhats?lang=en}{realhats} pro opravdové čepičky namísto fádních stříšek nad písmeny
+    \end{itemize}
+    
+    \item \href{https://www.youtube.com/watch?v=giPVUHYlW50}{Relativity is hard, but can you slap?} \href{https://www.youtube.com/watch?v=fwkvC2FT7Xs}{Or jazz?}
+\end{itemize}
+
+\end{document}

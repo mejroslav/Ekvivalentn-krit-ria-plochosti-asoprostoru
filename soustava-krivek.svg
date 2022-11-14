@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14, custom)"
+   sodipodi:docname="soustava-krivek.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.3638608"
+     inkscape:cx="288.80505"
+     inkscape:cy="140.01768"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 32.89913,48.554367 c 0,0 7.018706,-21.670971 16.715325,-27.335302 11.719614,-6.846075 45.148703,-6.135978 45.148703,-6.135978"
+       id="path330"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 32.79866,48.640428 c 0,0 31.93617,4.483677 44.655633,-3.442323 C 87.826828,38.734568 94.788777,14.9533 94.788777,14.9533 v 0"
+       id="path332"
+       sodipodi:nodetypes="cscc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 32.795053,48.640428 c 0,0 24.091278,-1.702402 34.468917,-7.184313 C 78.525961,35.507052 94.788777,14.9533 94.788777,14.9533 82.333109,21.677751 77.370937,28.425999 67.000495,32.466959 55.040662,37.127242 32.795053,48.640428 32.795053,48.640428 Z"
+       id="path334"
+       sodipodi:nodetypes="cscsc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 94.788777,14.9533 c 0,0 -24.648216,5.885053 -35.593215,11.955745 C 49.228875,32.437112 32.79866,48.640428 32.79866,48.640428"
+       id="path336"
+       sodipodi:nodetypes="csc" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';stroke-width:0.264583"
+       x="28.930935"
+       y="52.449223"
+       id="text392"><tspan
+         sodipodi:role="line"
+         id="tspan390"
+         style="stroke-width:0.264583"
+         x="28.930935"
+         y="52.449223">$P$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';stroke-width:0.264583"
+       x="93.899857"
+       y="13.677439"
+       id="text396"><tspan
+         sodipodi:role="line"
+         id="tspan394"
+         style="stroke-width:0.264583"
+         x="93.899857"
+         y="13.677439">$K$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';stroke-width:0.264583"
+       x="51.1437"
+       y="53.201298"
+       id="text400"><tspan
+         sodipodi:role="line"
+         id="tspan398"
+         style="stroke-width:0.264583"
+         x="51.1437"
+         y="53.201298">$\gamma_1(u)= x^\alpha(u,0)$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';stroke-width:0.264583"
+       x="20.298691"
+       y="19.575539"
+       id="text454"><tspan
+         sodipodi:role="line"
+         id="tspan452"
+         style="stroke-width:0.264583"
+         x="20.298691"
+         y="19.575539">$\gamma_2(u) = x^\alpha(u,1)$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';stroke-width:0.264583"
+       x="24.114632"
+       y="55.764687"
+       id="text458"><tspan
+         sodipodi:role="line"
+         id="tspan456"
+         style="stroke-width:0.264583"
+         x="24.114632"
+         y="55.764687">$x^\alpha(P) = x^\alpha(0,\beta)$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:FreeMono;-inkscape-font-specification:'FreeMono, Bold';stroke-width:0.264583"
+       x="88.614487"
+       y="32.635605"
+       id="text462"><tspan
+         sodipodi:role="line"
+         id="tspan460"
+         style="stroke-width:0.264583"
+         x="88.614487"
+         y="32.635605">$x^\alpha(K) = x^\alpha(1,\beta)$</tspan></text>
+  </g>
+</svg>

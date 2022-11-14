@@ -1,0 +1,150 @@
+%--------------------------------------------------------------
+%	REQUIRED PACKAGES
+%--------------------------------------------------------------
+
+\usepackage[
+nochapters, % Turn off chapters since this is an article        
+beramono, % Use the Bera Mono font for monospaced text (\texttt)
+%eulermath,% Use the Euler font for mathematics
+pdfspacing, % Makes use of pdftex’ letter spacing capabilities via the microtype package
+dottedtoc % Dotted lines leading to the page numbers in the table of contents
+]{classicthesis} % The layout is based on the Classic Thesis style
+
+\usepackage{arsclassica} % Modifies the Classic Thesis package
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[czech]{babel} % Český jazyk
+\usepackage{graphicx} % Required for including images
+%--------------------------------------------------------------
+% Fonts
+\usepackage{libertinus} % The Libertinus font
+
+\usepackage{enumitem} % Required for manipulating the whitespace between and within lists
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfig} % Required for creating figures with multiple parts (subfigures)
+
+
+
+\usepackage{amsmath,amssymb,amsthm,amsfonts} % For including math equations, theorems, symbols, etc
+\usepackage[czech]{varioref} % More descriptive referencing
+\usepackage[top = 3.5 cm, bottom = 3.5 cm, left = 2.5 cm, right = 2.5 cm]{geometry}
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{tensor}
+\usepackage{mdframed}
+
+%------------------------------------------------------------
+%	DIAGRAMS AND TIKZ
+\usepackage{smartdiagram}
+\usepackage{metalogo}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+
+\usepackage{hhline} % kvůli double line v tabulkách
+
+
+\usepackage{realhats}
+%------------------------------------------------------------
+%	THEOREM STYLES
+%------------------------------------------------------------
+
+\theoremstyle{definition} % Define theorem styles here based on the definition style (used for definitions and examples)
+\newtheorem{definition}{Definice}
+\newtheorem{example}{Příklad}
+\newtheorem{exercise}{Cvičení}
+
+\theoremstyle{plain} % Define theorem styles here based on the plain style (used for theorems, lemmas, propositions)
+\newtheorem{theorem}{Věta}
+
+\theoremstyle{remark} % Define theorem styles here based on the remark style (used for remarks and notes)
+\newtheorem{remark}{Poznámka}
+
+
+% TikZ
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+
+%-------------------------------------------------------------
+%	HYPERLINKS
+%-------------------------------------------------------------
+
+\hypersetup{
+%draft, % Uncomment to remove all links (useful for printing in black and white)
+colorlinks=true, breaklinks=true, bookmarks=true,bookmarksnumbered,
+urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen, % Link colors
+pdftitle={}, % PDF title
+pdfauthor={\textcopyright}, % PDF Author
+pdfsubject={}, % PDF Subject
+pdfkeywords={}, % PDF Keywords
+pdfcreator={pdfLaTeX}, % PDF Creator
+pdfproducer={LaTeX with hyperref and ClassicThesis} % PDF producer
+}
+
+
+
+%----------------------------------------------------
+%	MATHEMATICS
+%----------------------------------------------------
+
+% Tělesa, obory íntegrity a metrické prostory
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\L}[2]{L^{#1} \left( #2 \right)} % Lebesgueovy prostory
+
+\newcommand{\vc}[1]{\boldsymbol{#1}} % vektor
+\newcommand{\mat}[1]{\mathbf{#1}} % matice
+
+\newcommand{\norm}[1]{\left \Vert #1 \right \Vert} % norma vektoru
+\newcommand{\set}[1]{ \left \lbrace #1 \right \rbrace} % množina
+\newcommand{\const}{\mathrm{konst}} % konstanta
+
+\newcommand{\F}{\mathcal{F} } % Fourierova transformace
+\newcommand{\La}{\mathcal{L}} % Laplaceova transformace
+
+% Označení funkcí
+\newcommand{\Res}[2]{\mathrm{Res}_{#1} \, #2 \,} % residuum
+\newcommand{\sgn}{\, \mathrm{sign} \,} % signum
+\newcommand{\tg}{\,\mathrm{tg}\,} % možné značení tangens
+
+
+%Značení derivací a integrálů
+\newcommand{\der}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}} % obyčejná derivace
+\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}} % parciální derivace
+\newcommand{\ader}[2]{\frac{\mathrm{D} #1}{\mathrm{d} #2}} % absolutní derivace
+\newcommand{\apder}[2]{\frac{\mathrm{D} #1}{\partial #2}} % absolutní parciální derivace
+
+\newcommand{\tder}[3]{\left( \pder{#1}{#2} \right)_{#3 = \const}} % termodynamická derivace
+\newcommand{\D}{\mathrm{d} } % integrační znamení
+\newcommand{\DD}{\mathrm{D}} % absolutní derivace
+\newcommand{\intR}{\int_{-\infty}^{\infty}} % integrál přes reálnou osu
+
+
+
+% Značení posloupností, limit a sum
+\newcommand{\sequence}[2]{ \left \lbrace #1 \right \rbrace_{#2=1}^\infty} % posloupnost
+\newcommand{\sumnorm}[1]{\sum_{#1}^\infty} 
+\newcommand{\limplus}[1]{\lim_{#1 \rightarrow + \infty}}
+\newcommand{\limminus}[1]{\lim_{#1 \rightarrow - \infty}}
+\newcommand{\limn}{\lim_{n \rightarrow \infty}}
+\newcommand{\LH}{\overset{l'H}=}
+
+
+% VŠE záležitosti
+\newcommand{\dder}[2]{\frac{\Delta #1}{\Delta #2}}
+
+
+\newcommand{\arctg}{\mathrm{arctg}\,}
+\newcommand{\cotg}{\mathrm{cotg}\,}
+\newcommand{\arccotg}{\mathrm{arccotg}\,}
+
